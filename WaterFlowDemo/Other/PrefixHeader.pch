@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  UIScrollView瀑布流
+//
+//  Created by zhuyi on 15/10/7.
+//  Copyright (c) 2015年 zhuyiIT. All rights reserved.
+//
+
+#ifndef UIScrollView____PrefixHeader_pch
+#define UIScrollView____PrefixHeader_pch
+
+//颜色
+#define ZYColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define ZYColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+//随机色
+#define ZYRandomColor ZYColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+
+
+//NSLog的输出还是比较消耗系统资源的，而且输出的数据也可能会暴露出App里的保密数据，所以发布正式版时需要把这些输出全部屏蔽掉。
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif
+
+#endif
+
